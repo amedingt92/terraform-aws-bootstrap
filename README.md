@@ -2,7 +2,7 @@
 
 ## 📖 Overview
 
-This project provisions a basic AWS cloud stack using Terraform. It creates a VPC, public subnet, and an EC2 instance configured for web traffic — ideal for Infrastructure-as-Code (IaC) beginners.
+This project provisions a basic AWS cloud stack using Terraform. It creates a VPC, public subnet, and an EC2 instance configured to run an NGINX web server and serve a public webpage — ideal for Infrastructure-as-Code (IaC) beginners.
 
 ## 🧰 Tools Used
 
@@ -31,7 +31,7 @@ terraform-aws-bootstrap/
 ├── main.tf                   # Main infrastructure configuration
 ├── variables.tf              # Input variables
 ├── outputs.tf                # Output values (e.g., public IP)
-├── terraform.tfvars.example  # Example variable values
+├── terraform.tfvars          # Variable values (e.g., AMI ID), normally wouldn't commit this, but nothing confidential now
 ├── .gitignore                # Files to ignore (e.g., .terraform/)
 ├── README.md                 # Project overview
 ```
@@ -45,7 +45,6 @@ graph TD
     Subnet --> EC2
     EC2 --> SecurityGroup
 ```
-![My photo](./mermaid_diagrams/architectureDiagram.png "Architecture diagram")
 
 
 ## 🚀 How to Use
@@ -63,6 +62,16 @@ terraform apply
 ## 📦 Outputs
 
 - EC2 Public IP (to access via browser or SSH)
+
+## 🔍 Example Result
+
+After running `terraform apply`, visit the browser-accessible IP:
+
+**Example:** `http://3.227.8.150`
+
+You should see:
+Hello from Terraform!
+
 
 ## 🧪 Development Notes
 
